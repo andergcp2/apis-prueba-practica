@@ -5,8 +5,8 @@ import { Repository } from 'typeorm';
 import {
   BusinessError,
   BusinessLogicException,
-} from '../../src/shared/errors/business-errors';
-import { countries } from '../../src/shared/data/countries';
+} from '../shared/errors/business-errors';
+import { countries } from '../shared/data/countries';
 
 @Injectable()
 export class CiudadService {
