@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
   Param,
   Post,
   Put,
@@ -51,6 +52,7 @@ export class SupermercadoController {
   }
 
   @Delete(':id')
+  @HttpCode(204)
   async delete(@Param('id') id: string) {
     return await this.supermarketService.delete(id);
   }

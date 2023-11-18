@@ -2,6 +2,7 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
   Param,
   Post,
   Put,
@@ -60,6 +61,7 @@ export class CiudadSupermercadoController {
   }
 
   @Delete(':cityId/supermarkets/:supermarketId')
+  @HttpCode(204)
   async deleteSupermarketFromCity(
     @Param('cityId') cityId: string,
     @Param('supermarketId') supermarketId: string,

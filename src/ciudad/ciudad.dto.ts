@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsInt, IsNotEmpty, IsString } from 'class-validator';
 
 export class CiudadDto {
   @IsString()
@@ -9,7 +9,7 @@ export class CiudadDto {
   @IsNotEmpty()
   readonly pais: string;
 
-  @IsString()
+  @IsInt()
   @IsNotEmpty()
   readonly habitantes: number;
 }
