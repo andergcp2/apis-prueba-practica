@@ -1,0 +1,830 @@
+{
+	"info": {
+		"_postman_id": "d4733608-1dc9-4b87-b76f-5d1a60966f32",
+		"name": "Supermercados",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13424395",
+		"_collection_link": "https://www.postman.com/andergcp/workspace/uniandes/collection/13424395-d4733608-1dc9-4b87-b76f-5d1a60966f32?action=share&source=collection_link&creator=13424395"
+	},
+	"item": [
+		{
+			"name": "Add a Supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"supermarket_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"El Super mercado\",\n    \"longitud\": 100,\n    \"latitud\": 50,\n    \"paginaWeb\": \"www.ander.co\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}supermarkets",
+					"host": [
+						"{{baseUrl}}supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Supermarket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"El Super mercado\",\n    \"longitud\": 100,\n    \"latitud\": 50,\n    \"paginaWeb\": \"www.ander.co\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}supermarkets",
+							"host": [
+								"{{baseUrl}}supermarkets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"80-PxdffzUZxcOB6OC3S1ro7u6beyw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:17:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"El Super mercado\",\n    \"longitud\": 100,\n    \"latitud\": 50,\n    \"paginaWeb\": \"www.ander.co\",\n    \"id\": \"50422574-f7f1-4b26-be44-10a11bcbac3c\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Invalid Supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"   pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The name must have more than 10 characters\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Corto\",\n    \"longitud\": 100,\n    \"latitud\": 50,\n    \"paginaWeb\": \"www.ander.co\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}supermarkets",
+					"host": [
+						"{{baseUrl}}supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Invalid Supermarket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Corto\",\n    \"longitud\": 100,\n    \"latitud\": 50,\n    \"paginaWeb\": \"www.ander.co\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}supermarkets",
+							"host": [
+								"{{baseUrl}}supermarkets"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"49-MeI/ZvABAsF+Wov0plaGDfpHSwM\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:20:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": \"The name must have more than 10 characters\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Supermarkets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}supermarkets",
+					"host": [
+						"{{baseUrl}}supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Supermarkets",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}supermarkets",
+							"host": [
+								"{{baseUrl}}supermarkets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "430"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1ae-re3Lgi9g4nAebv6BR5+z0CxdPcM\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:20:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"60a66137-e209-4d26-809f-84f431208ce8\",\n        \"nombre\": \"El Super mercado\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\",\n        \"ciudades\": []\n    },\n    {\n        \"id\": \"50422574-f7f1-4b26-be44-10a11bcbac3c\",\n        \"nombre\": \"El Super mercado\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\",\n        \"ciudades\": []\n    },\n    {\n        \"id\": \"4d623222-cf06-48c6-8ccb-769dcaed7d51\",\n        \"nombre\": \"El Super mercado\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\",\n        \"ciudades\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Supermarket By Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}supermarkets/{{supermarket_id}}",
+					"host": [
+						"{{baseUrl}}supermarkets"
+					],
+					"path": [
+						"{{supermarket_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Supermarket By Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}supermarkets/{{supermarket_id}}",
+							"host": [
+								"{{baseUrl}}supermarkets"
+							],
+							"path": [
+								"{{supermarket_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "142"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8e-aKrNBD74VyIQTt8XPYwjEDp+IMc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:21:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"4d623222-cf06-48c6-8ccb-769dcaed7d51\",\n    \"nombre\": \"El Super mercado\",\n    \"longitud\": 100,\n    \"latitud\": 50,\n    \"paginaWeb\": \"www.ander.co\",\n    \"ciudades\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Supermarket by Invalid Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The supermarket with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}supermarkets/4d623222-cf06-48c6-8ccb-769dcaed7d34",
+					"host": [
+						"{{baseUrl}}supermarkets"
+					],
+					"path": [
+						"4d623222-cf06-48c6-8ccb-769dcaed7d34"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}supermarkets/4d623222-cf06-48c6-8ccb-769dcaed7d34",
+							"host": [
+								"{{baseUrl}}supermarkets"
+							],
+							"path": [
+								"4d623222-cf06-48c6-8ccb-769dcaed7d34"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:23:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a Supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"El Super mercado mejorado\",\n    \"longitud\": 90,\n    \"latitud\": 40,\n    \"paginaWeb\": \"www.ander.co\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}supermarkets/{{supermarket_id}}",
+					"host": [
+						"{{baseUrl}}supermarkets"
+					],
+					"path": [
+						"{{supermarket_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update a Supermarket",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"El Super mercado mejorado\",\n    \"longitud\": 90,\n    \"latitud\": 40,\n    \"paginaWeb\": \"www.ander.co\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}supermarkets/{{supermarket_id}}",
+							"host": [
+								"{{baseUrl}}supermarkets"
+							],
+							"path": [
+								"{{supermarket_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "136"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"88-IjgfI6mLm4jhTXTt/jiklUJM3qA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:24:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"4d623222-cf06-48c6-8ccb-769dcaed7d51\",\n    \"nombre\": \"El Super mercado mejorado\",\n    \"longitud\": 90,\n    \"latitud\": 40,\n    \"paginaWeb\": \"www.ander.co\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a Supermarket By Invalid Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The supermarket with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"El Super mercado mejorado\",\n    \"longitud\": 90,\n    \"latitud\": 40,\n    \"paginaWeb\": \"www.ander.co\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}supermarkets/4d623222-cf06-48c6-8ccb-769dcaed7d34",
+					"host": [
+						"{{baseUrl}}supermarkets"
+					],
+					"path": [
+						"4d623222-cf06-48c6-8ccb-769dcaed7d34"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update a Supermarket By Invalid Id",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"El Super mercado mejorado\",\n    \"longitud\": 90,\n    \"latitud\": 40,\n    \"paginaWeb\": \"www.ander.co\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}supermarkets/4d623222-cf06-48c6-8ccb-769dcaed7d34",
+							"host": [
+								"{{baseUrl}}supermarkets"
+							],
+							"path": [
+								"4d623222-cf06-48c6-8ccb-769dcaed7d34"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:26:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a Supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}supermarkets/{{supermarket_id}}",
+					"host": [
+						"{{baseUrl}}supermarkets"
+					],
+					"path": [
+						"{{supermarket_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a Supermarket",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}supermarkets/{{supermarket_id}}",
+							"host": [
+								"{{baseUrl}}supermarkets"
+							],
+							"path": [
+								"{{supermarket_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:26:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete a City By Invalid Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The supermarket with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}supermarkets/4d623222-cf06-48c6-8ccb-769dcaed7d34",
+					"host": [
+						"{{baseUrl}}supermarkets"
+					],
+					"path": [
+						"4d623222-cf06-48c6-8ccb-769dcaed7d34"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a City By Invalid Id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}supermarkets/4d623222-cf06-48c6-8ccb-769dcaed7d34",
+							"host": [
+								"{{baseUrl}}supermarkets"
+							],
+							"path": [
+								"4d623222-cf06-48c6-8ccb-769dcaed7d34"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:27:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3000/api/v1/"
+		}
+	]
+}

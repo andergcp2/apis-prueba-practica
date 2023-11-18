@@ -1,0 +1,1158 @@
+{
+	"info": {
+		"_postman_id": "9b25d597-f189-4fb3-b9a8-b58d2c831ec7",
+		"name": "Ciudades-Supermercados",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13424395",
+		"_collection_link": "https://www.postman.com/andergcp/workspace/uniandes/collection/13424395-9b25d597-f189-4fb3-b9a8-b58d2c831ec7?action=share&source=collection_link&creator=13424395"
+	},
+	"item": [
+		{
+			"name": "Add a City",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"city_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Buenos Aires\",\n    \"pais\": \"Argentina\",\n    \"habitantes\": 10000000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}cities",
+					"host": [
+						"{{baseUrl}}cities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a City",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Buenos Aires\",\n    \"pais\": \"Argentina\",\n    \"habitantes\": 10000000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}cities",
+							"host": [
+								"{{baseUrl}}cities"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "110"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6e-EWRUENkPUmDZDZJ83g2kZ0FYE5c\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 01:59:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Buenos Aires\",\n    \"pais\": \"Argentina\",\n    \"habitantes\": 10000000,\n    \"id\": \"c4ec0e62-90a9-4cc8-9b71-1eed58da2b86\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a Supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"supermarket_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"El Super mercado\",\n    \"longitud\": 100,\n    \"latitud\": 50,\n    \"paginaWeb\": \"www.ander.co\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}supermarkets",
+					"host": [
+						"{{baseUrl}}supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Supermarket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"El Super mercado\",\n    \"longitud\": 100,\n    \"latitud\": 50,\n    \"paginaWeb\": \"www.ander.co\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}supermarkets",
+							"host": [
+								"{{baseUrl}}supermarkets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"80-PxdffzUZxcOB6OC3S1ro7u6beyw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:17:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"El Super mercado\",\n    \"longitud\": 100,\n    \"latitud\": 50,\n    \"paginaWeb\": \"www.ander.co\",\n    \"id\": \"50422574-f7f1-4b26-be44-10a11bcbac3c\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a Supermarket 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"supermarket_id2\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"El Super mercado\",\n    \"longitud\": 100,\n    \"latitud\": 50,\n    \"paginaWeb\": \"www.ander.co\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}supermarkets",
+					"host": [
+						"{{baseUrl}}supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Supermarket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"El Super mercado\",\n    \"longitud\": 100,\n    \"latitud\": 50,\n    \"paginaWeb\": \"www.ander.co\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}supermarkets",
+							"host": [
+								"{{baseUrl}}supermarkets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"80-PxdffzUZxcOB6OC3S1ro7u6beyw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:17:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"El Super mercado\",\n    \"longitud\": 100,\n    \"latitud\": 50,\n    \"paginaWeb\": \"www.ander.co\",\n    \"id\": \"50422574-f7f1-4b26-be44-10a11bcbac3c\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Supermarket to City",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets/{{supermarket_id}}",
+					"host": [
+						"{{baseUrl}}cities"
+					],
+					"path": [
+						"{{city_id}}",
+						"supermarkets",
+						"{{supermarket_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Supermarket to City",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets/{{supermarket_id}}",
+							"host": [
+								"{{baseUrl}}cities"
+							],
+							"path": [
+								"{{city_id}}",
+								"supermarkets",
+								"{{supermarket_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "257"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"101-I9Mf9jU+RFmjlSPwFzKZCzTM+KM\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:34:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"62c1f59f-8d2e-47f8-956e-a900e4454727\",\n    \"nombre\": \"Buenos Aires\",\n    \"pais\": \"Argentina\",\n    \"habitantes\": 10000000,\n    \"supermercados\": [\n        {\n            \"id\": \"995de90c-6783-42fe-bc92-964e41c84bee\",\n            \"nombre\": \"El Super mercado\",\n            \"longitud\": 100,\n            \"latitud\": 50,\n            \"paginaWeb\": \"www.ander.co\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Invalid Supermarket to City",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets/995de90c-6783-42fe-bc92-964e41c84baa",
+					"host": [
+						"{{baseUrl}}cities"
+					],
+					"path": [
+						"{{city_id}}",
+						"supermarkets",
+						"995de90c-6783-42fe-bc92-964e41c84baa"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Invalid Supermarket to City",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets/995de90c-6783-42fe-bc92-964e41c84baa",
+							"host": [
+								"{{baseUrl}}cities"
+							],
+							"path": [
+								"{{city_id}}",
+								"supermarkets",
+								"995de90c-6783-42fe-bc92-964e41c84baa"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:35:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Invalid Supermarket to City Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}cities/62c1f59f-8d2e-47f8-956e-a900e4454712/supermarkets/{{supermarket_id}}",
+					"host": [
+						"{{baseUrl}}cities"
+					],
+					"path": [
+						"62c1f59f-8d2e-47f8-956e-a900e4454712",
+						"supermarkets",
+						"{{supermarket_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Invalid Supermarket to City",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets/995de90c-6783-42fe-bc92-964e41c84baa",
+							"host": [
+								"{{baseUrl}}cities"
+							],
+							"path": [
+								"{{city_id}}",
+								"supermarkets",
+								"995de90c-6783-42fe-bc92-964e41c84baa"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:35:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				},
+				{
+					"name": "Add Invalid Supermarket to City Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}cities/62c1f59f-8d2e-47f8-956e-a900e4454712/supermarkets/{{supermarket_id}}",
+							"host": [
+								"{{baseUrl}}cities"
+							],
+							"path": [
+								"62c1f59f-8d2e-47f8-956e-a900e4454712",
+								"supermarkets",
+								"{{supermarket_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-/0V/k2+crzI7sGzpGdseMTk6hHQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:36:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The city with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all Supermarkets from City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets",
+					"host": [
+						"{{baseUrl}}cities"
+					],
+					"path": [
+						"{{city_id}}",
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all Supermarkets from City",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets",
+							"host": [
+								"{{baseUrl}}cities"
+							],
+							"path": [
+								"{{city_id}}",
+								"supermarkets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "130"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"82-WCyeYDGFUSnjk3/OQ4hyGI+/ND4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:37:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"995de90c-6783-42fe-bc92-964e41c84bee\",\n        \"nombre\": \"El Super mercado\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get a Supermarket from a City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets/{{supermarket_id}}",
+					"host": [
+						"{{baseUrl}}cities"
+					],
+					"path": [
+						"{{city_id}}",
+						"supermarkets",
+						"{{supermarket_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a Supermarket from a City",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets/{{supermarket_id}}",
+							"host": [
+								"{{baseUrl}}cities"
+							],
+							"path": [
+								"{{city_id}}",
+								"supermarkets",
+								"{{supermarket_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"80-WbDrWKU1CLKwAXI65yO66/TvK7c\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:38:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"995de90c-6783-42fe-bc92-964e41c84bee\",\n    \"nombre\": \"El Super mercado\",\n    \"longitud\": 100,\n    \"latitud\": 50,\n    \"paginaWeb\": \"www.ander.co\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a Supermarket not associated to City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets/{{supermarket_id2}}",
+					"host": [
+						"{{baseUrl}}cities"
+					],
+					"path": [
+						"{{city_id}}",
+						"supermarkets",
+						"{{supermarket_id2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a Supermarket not associated to City",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets/{{supermarket_id2}}",
+							"host": [
+								"{{baseUrl}}cities"
+							],
+							"path": [
+								"{{city_id}}",
+								"supermarkets",
+								"{{supermarket_id2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:43:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update all City's Supermarkets",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"nombre\": \"El Super mercado\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\"\n    },\n    {\n        \"nombre\": \"El Super mercado2\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\"\n    },\n    {\n        \"nombre\": \"El Super mercado3\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets",
+					"host": [
+						"{{baseUrl}}cities"
+					],
+					"path": [
+						"{{city_id}}",
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update all City's Supermarkets",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"nombre\": \"El Super mercado\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\"\n    },\n    {\n        \"nombre\": \"El Super mercado2\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\"\n    },\n    {\n        \"nombre\": \"El Super mercado3\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets",
+							"host": [
+								"{{baseUrl}}cities"
+							],
+							"path": [
+								"{{city_id}}",
+								"supermarkets"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-rlKccw1E+/fV8niQk4oFitDfPro\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:43:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 500,\n    \"message\": \"Internal server error\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update City's Supermarkets with Invalid id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"nombre\": \"El Super mercado\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\"\n    },\n    {\n        \"nombre\": \"El Super mercado2\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\"\n    },\n    {\n        \"nombre\": \"El Super mercado3\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets",
+					"host": [
+						"{{baseUrl}}cities"
+					],
+					"path": [
+						"{{city_id}}",
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"nombre\": \"El Super mercado\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\"\n    },\n    {\n        \"nombre\": \"El Super mercado2\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\"\n    },\n    {\n        \"nombre\": \"El Super mercado3\",\n        \"longitud\": 100,\n        \"latitud\": 50,\n        \"paginaWeb\": \"www.ander.co\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets",
+							"host": [
+								"{{baseUrl}}cities"
+							],
+							"path": [
+								"{{city_id}}",
+								"supermarkets"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-rlKccw1E+/fV8niQk4oFitDfPro\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:45:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 500,\n    \"message\": \"Internal server error\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Supermarket from City",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets/{{supermarket_id}}",
+					"host": [
+						"{{baseUrl}}cities"
+					],
+					"path": [
+						"{{city_id}}",
+						"supermarkets",
+						"{{supermarket_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Supermarket from City",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets/{{supermarket_id}}",
+							"host": [
+								"{{baseUrl}}cities"
+							],
+							"path": [
+								"{{city_id}}",
+								"supermarkets",
+								"{{supermarket_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"81-l57BceLl9wkRUguCVkK2dwKWX+g\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:45:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete Not associated Supermarket from City",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets/{{supermarket_id2}}",
+					"host": [
+						"{{baseUrl}}cities"
+					],
+					"path": [
+						"{{city_id}}",
+						"supermarkets",
+						"{{supermarket_id2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Supermarket from City",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets/{{supermarket_id}}",
+							"host": [
+								"{{baseUrl}}cities"
+							],
+							"path": [
+								"{{city_id}}",
+								"supermarkets",
+								"{{supermarket_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"81-l57BceLl9wkRUguCVkK2dwKWX+g\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:45:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Delete Not associated Supermarket from City",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}cities/{{city_id}}/supermarkets/{{supermarket_id2}}",
+							"host": [
+								"{{baseUrl}}cities"
+							],
+							"path": [
+								"{{city_id}}",
+								"supermarkets",
+								"{{supermarket_id2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "96"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"60-AvSRVe8gdCXLhIIVsV7pjDy9LKc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 02:46:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The supermarket with the given id is not associated with the city\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3000/api/v1/"
+		}
+	]
+}
